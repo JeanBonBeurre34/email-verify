@@ -2,7 +2,7 @@
 
 ## Description
 
-This Python script verifies the existence of an email address using the SMTP `VRFY` command. It establishes a connection to an SMTP server and sends a verification request for a specified email address. 
+This Python script verifies the existence of an email address across a specified IP range using the SMTP `VRFY` command. The script first checks if port 25 is open on each host within the given CIDR IP range. If the port is open, it then proceeds to verify the specified email address on that host.
 
 Please note that the effectiveness of this script is dependent on the SMTP server's configuration and its response to the `VRFY` command. Some servers may not respond or may provide limited information as a spam prevention measure.
 
@@ -10,7 +10,7 @@ Please note that the effectiveness of this script is dependent on the SMTP serve
 
 - Python 3.x
 - Internet connection
-- Access to an SMTP server
+- Access to SMTP servers within the specified IP range
 
 ## Installation
 
@@ -18,8 +18,8 @@ No additional installation is required, as the script uses Python's standard lib
 
 ## Usage
 
-Run the script from the command line, providing the SMTP server, port, and email address as arguments:
+Run the script from the command line, providing the CIDR IP range, port, and email address as arguments:
 
 ```bash
-python script_name.py --server <smtp_server_address> --port <smtp_server_port> --email <email_address_to_verify>
+python script_name.py --cidr <cidr_ip_range> --port <smtp_server_port> --email <email_address_to_verify>
 ````
